@@ -8,11 +8,12 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    
+    @IBOutlet weak var loginButton:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func loginPressed(_ sender: Any) {

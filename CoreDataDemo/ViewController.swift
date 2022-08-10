@@ -44,13 +44,10 @@ class ViewController: UIViewController{//},UICollectionViewDelegate,UICollection
                  print("error while decoding")
                  return
              }
-             
-             
              // get data
              
             do {
 //                 let data = try Data(contentsOf: URL(string: self.apiLink)!)
-                print("inside do")
                let data = try JSONDecoder().decode(DecodeStructure.self,from: someData! )
                 self.dataFromApi = data
 //                let info:DecodeStructure?
@@ -65,8 +62,11 @@ class ViewController: UIViewController{//},UICollectionViewDelegate,UICollection
         
         task.resume()
     }
-    func getImage(){
-        
+    func getImage(_ addressFromJson:String){
+        guard let url = URL(string: addressFromJson)else{
+            return
+        }
+        let data = try? 
     }
 }
 

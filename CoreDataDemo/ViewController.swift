@@ -62,11 +62,27 @@ class ViewController: UIViewController{//},UICollectionViewDelegate,UICollection
         
         task.resume()
     }
-    func getImage(_ addressFromJson:String){
-        guard let url = URL(string: addressFromJson)else{
+}
+
+
+// here we are adding a function in uiimageview so that we can access it directly
+extension UIImageView{
+    func loadImagefromUrl(URLAddress : String){
+        // if we have the url in string format then convert it into url
+        guard let url = URL(string: URLAddress) else{
             return
         }
-        let data = try? 
+        
+        DispatchQueue.main.async { [weak self] in
+            // getting data from URL using Data
+            if let imageData = try? Data(contentsOf: url) {
+                // converting data into UIImage using
+                if let loadedImage = UIImage(data: imageData){
+                    self?.image = loadedImage
+                }
+            }
+            
+        }
     }
 }
 
